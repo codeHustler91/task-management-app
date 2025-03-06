@@ -34,7 +34,6 @@ export function CreateTask() {
 
   const createTask = trpc.task.create.useMutation({
     onSuccess: (result) => {
-      console.log("Task created successfully:", result);
       
       // Invalidate the query to refresh the task list
       queryClient.invalidateQueries({

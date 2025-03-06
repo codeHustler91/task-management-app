@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { trpc } from '../utils/trpc';
 
@@ -9,11 +8,7 @@ export function TaskList() {
     refetchOnWindowFocus: true,
     staleTime: 0,
     refetchOnReconnect: true,
-    // onSuccess: (data) => {
-    //   console.log("Tasks fetched successfully:", data.length, "tasks");
-    // }
   });
-  console.log("TaskList rendering, isFetching:", tasksQuery.isFetching);
 
   if (tasksQuery.isLoading) {
     return <div>Loading tasks...</div>;
@@ -55,12 +50,6 @@ export function TaskList() {
           Create New Task
         </Link>
       </div>
-      <button 
-        onClick={() => tasksQuery.refetch()}
-        style={{ marginTop: '20px' }}
-      >
-        Refresh Tasks
-      </button>
     </div>
   );
 }

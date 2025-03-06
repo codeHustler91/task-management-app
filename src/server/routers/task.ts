@@ -39,15 +39,12 @@ export const taskRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      console.log("Server received create task request:", input);
       try {
         const result = await ctx.prisma.task.create({
           data: input,
         });
-        console.log("Task created in database:", result);
         return result;
       } catch (error) {
-        console.error("Error creating task in database:", error);
         throw error;
       }
     }),
